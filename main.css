@@ -19,9 +19,6 @@ body {
   padding: 0 15px;
   margin: 0 auto;
 }
-.container > div {
-  margin-top: 40px;
-}
 @media (max-width: 375px) {
   .container {
     width: 350px;
@@ -133,12 +130,13 @@ body {
 .special-text h1 {
   margin: 10px 0;
   color: var(--Very-Dark-Blue);
+  font-size: clamp(0.75rem, 2.5vw, 2.5rem);
 }
 .special-text p {
   margin: 10px 0;
   font-weight: 400;
-  font-size: 0.75rem;
   color: var(--Desaturated-Blue);
+  font-size: clamp(0.5rem, 2.5vw, 1rem);
 }
 /* ---------------- */
 /* Navbar */
@@ -146,10 +144,9 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
-}
-.navbar .title {
-  padding: 1rem;
+  padding: clamp(0.5rem, 2vw, 2rem);
+  max-height: 120px;
+  gap: 1rem;
 }
 .navbar .title img {
   width: clamp(70px, 100%, 100%);
@@ -158,7 +155,7 @@ body {
 .navbar .links ul {
   display: flex;
   list-style: none;
-  gap: 1rem;
+  gap: clamp(1rem, 2vw, 2rem);
 }
 .navbar .links ul li a {
   height: 100%;
@@ -177,7 +174,9 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   align-items: center;
-  gap: 10px;
+  gap: 1rem;
+  min-height: calc(100vh - 120px);
+  margin-bottom: 2rem;
 }
 .landing img {
   width: 100%;
@@ -267,8 +266,9 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   align-items: center;
-  gap: 10px;
+  gap: 1rem;
   position: relative;
+  min-height: 100vh;
 }
 .features::before {
   content: "";
@@ -361,6 +361,9 @@ body {
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
 }
+.features .quote .profile .name h2 {
+  font-size: 0.75rem;
+}
 .features .quote .profile .name p {
   margin: 0;
 }
@@ -370,17 +373,24 @@ body {
   background-color: var(--Desaturated-Blue);
 }
 .contact .container {
-  padding: 2rem;
+  padding: 6rem clamp(1rem, 2vw, 6rem);
 }
 .contact .container section {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   column-gap: 1rem;
 }
+@media (max-width: 650px) {
+  .contact .container section {
+    justify-content: center;
+  }
+}
 .contact .container section .text {
-  flex: 0 1 400px;
+  flex: 1 1;
+  max-width: 400px;
+  min-width: 300px;
   color: white;
   line-height: 1.6;
 }
@@ -393,7 +403,9 @@ body {
   font-size: 0.75rem;
 }
 .contact form {
-  flex: 0 1 400px;
+  flex: 1 1;
+  max-width: 400px;
+  min-width: 300px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -470,6 +482,7 @@ body {
 /* Footer */
 footer {
   background-color: var(--Very-Dark-Blue);
+  padding: 6rem 0;
 }
 footer img {
   filter: invert(1);
